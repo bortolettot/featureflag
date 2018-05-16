@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    build: ./app
+    ports:
+     - "8080:8080"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+     - DATABASE_USER=userDataBase
+     - DATABASE_PASS=passDataBase
+     - PORTA_HTTP=8080
+    volumes:
+     - ./app/api/:/app/api
+  db:
+    build: ./bancoMySql
+
+  
